@@ -1,0 +1,30 @@
+# Sudo is required to run Docker
+sudo: required
+
+# Let Travis know this is a Java project.
+# Travis will run the maven commands to retrieve dependencies and build your artefact.
+language: java
+
+# Build with Open JDK 8 to ensure consistency with Docker image
+jdk:
+  - openjdk8
+
+# Set up a cache for Maven dependencies.
+# Should speed up builds.
+cache:
+  directories:
+    - $HOME/.m2/repository
+
+# Copy over our settings.xml so the build can resolve dependencies
+before_install:
+  # Copy over our settings.pofr-request so the build can resolve dependencies
+  - cp mvn.settings.xml $HOME/.m2/settings.xml && ls -la $HOME/.m2/settings.xml  
+
+deploy:
+  # Deploy artifact to repository if on master branch
+  - provider:     script
+    script:       mvn deploy -B -Dmaven.test.skip && ls -la target
+    skip_cleanup: true
+    on:
+      all_branches: true
+      condition: $TRAVIS_BRANCH =~ ^development|master$ || $TRAVIS_TAG
