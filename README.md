@@ -11,3 +11,6 @@ https://www.dell.com/community/Inspiron/Suspend-resume-problems-on-Ubuntu-18-04/
 https://ubuntuforums.org/showthread.php?t=2420606&p=13864653#post13864653
 https://askubuntu.com/questions/1149336/suspend-works-only-on-one-computer
 
+
+https://totalworkplace-my.sharepoint.com/personal/alexander_lisak_totalgp_com/_layouts/15/onedrive.aspx
+
